@@ -1,0 +1,27 @@
+[plugin]
+name = "synthetic-data"
+version = "0.1.0"
+description = "AdiOS synthetic-data plugin"
+category = "enterprise"
+license = "MIT"
+author = "TridentBiz Team <team@tridentbiz.com>"
+homepage = "https://github.com/tridentbiz/adios-synthetic-data"
+repository = "https://github.com/tridentbiz/adios-synthetic-data"
+keywords = ["adios", "plugin", "enterprise", "synthetic-data"]
+
+[compatibility]
+adios-core = ">=1.0.0"
+platforms = ["wava", "ewa", "mava"]
+
+[dependencies]
+required_core_services = []
+optional_core_services = ["adios-luna-ai", "adios-sync-protocol"]
+system_dependencies = []
+
+[marketplace]
+price = "free"
+support_tier = "community"
+standalone_sellable = true
+
+[integration]
+circular_flow = ["learn", "capture", "improve"]
