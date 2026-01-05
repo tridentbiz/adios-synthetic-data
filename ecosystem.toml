@@ -1,0 +1,32 @@
+# AdiOS Ecosystem Configuration for this plugin
+
+[ecosystem]
+# Plugin registration settings
+auto_register = true
+auto_activate = false
+health_check_interval = "5m"
+
+[communication]
+# Inter-plugin communication settings
+enable_discovery = true
+enable_messaging = true
+message_timeout = "30s"
+
+[integration]
+# Core service integrations
+sync_protocol = true
+context_capture = false
+luna_ai = false
+gamification = false
+
+[security]
+# Security settings
+validate_messages = true
+encrypt_communication = false
+sandbox_mode = false
+
+[monitoring]
+# Monitoring and observability
+enable_metrics = true
+enable_tracing = true
+log_level = "info"
