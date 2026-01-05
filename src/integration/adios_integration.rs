@@ -29,7 +29,7 @@ pub enum HealthStatus {
 pub struct AdiosPlugin {
     info: PluginInfo,
     state: PluginState,
-    _ctx: Option<Arc<AppContext>>,
+    ctx: Option<Arc<AppContext>>,
     bus: Option<Arc<EventBus>>,
 }
 
@@ -43,7 +43,7 @@ impl AdiosPlugin {
                 last_sync: None,
                 health_status: HealthStatus::Healthy,
             },
-            _ctx: None,
+            ctx: None,
             bus: None,
         }
     }
@@ -74,7 +74,7 @@ impl AdiosPlugin {
     }
     
     /// Handle inter-plugin communication
-    pub async fn handle_plugin_message(&self, from: &str, _message: serde_json::Value) -> PluginResult<serde_json::Value> {
+    pub async fn handle_plugin_message(&self, from: &str, message: serde_json::Value) -> PluginResult<serde_json::Value> {
         // Default implementation - override in specific plugins
         tracing::info!(from = %from, "Received plugin message");
         Ok(serde_json::json!({"status": "received"}))
@@ -97,7 +97,7 @@ impl Plugin for AdiosPlugin {
         &self.info
     }
     
-    async fn init(&mut self, _ctx: Arc<AppContext>, bus: Arc<EventBus>) -> PluginResult<()> {
+    async fn init(&mut self, ctx: Arc<AppContext>, bus: Arc<EventBus>) -> PluginResult<()> {
         tracing::info!(plugin_id = %self.info.id, "Initializing plugin");
         
         self.ctx = Some(ctx);
